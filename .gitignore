@@ -1,0 +1,7 @@
+# Carpetas de compilación
+[Bb]in/
+[Oo]bj/
+
+# Archivos de configuración local de Visual Studio
+.vs/
+*.user
