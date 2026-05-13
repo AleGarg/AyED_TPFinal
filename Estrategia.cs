@@ -15,8 +15,8 @@ namespace tpfinal
 	
 		public String Consulta1(List<string> datos)
 		{
-			string resutl = "Implementar";
-            return resutl;
+			string result = "Implementar";
+            return result;
 		}
 
 
@@ -37,11 +37,18 @@ namespace tpfinal
 		}
 
 
+
+        // Sinceramente, no sé si BuscarConOtro es igual a BuscarConOrden, o si hay que hacer un void nuevo...
+        // 2. BuscarConOrden(List<string> datos, int cantidad, List<Dato> collected): Tiene la misma funcionalidad del método BuscarConHeap() pero debe implementarse utilizando un método ordenamiento de los vistos en clase el que sea de su preferencia.
+
         public void BuscarConOtro(List<string> datos, int cantidad, List<Dato> collected)
         {
             //Implementar
         }
 
+
+        // ACÁ SE TRABAJA:
+        // 1. BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected): Retorna en la variable collected los primeros elementos con mayor número de ocurrencias de la lista datos utilizando una Heap como estructura de datos soporte. El número de elementos a retornar es indicado por el parámetro cantidad.
 
         public void BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected)
         {
