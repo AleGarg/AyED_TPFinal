@@ -18,10 +18,10 @@ namespace tpfinal
         public Form2()
         {
             InitializeComponent();
-            
+
 
         }
-        
+
 
         protected override void OnShown(EventArgs e)
         {
@@ -45,11 +45,15 @@ namespace tpfinal
                     titulo = Utils.RemoveSpecialCharacters(fields[1]);
                     descript = Utils.RemoveSpecialCharacters(fields[2]);
                     //estrategia.AgregarDato(Backend.arbol, new Dato(0, titulo, descript));
-                    Backend.datos.Add(titulo+"-"+descript);
+
+
+                    Backend.datos.Add(titulo + "-" + descript); // ACÁ ES DONDE SE AÑADEN LOS DATOS A datos en BACKEND.
+
+
                     progressBar1.PerformStep();
                 }
             }
-            
+
             Form1 buscador = new Form1();
             buscador.Show();
             this.Close();
@@ -67,10 +71,10 @@ namespace tpfinal
         {
 
 
-                ReleaseCapture();
-                SendMessage(this.Handle, 0x112, 0xf012, 0);
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
 
-            
+
         }
 
         private void caras_Paint(object sender, PaintEventArgs e)

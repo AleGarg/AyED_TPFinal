@@ -5,7 +5,8 @@ namespace tpfinal
 { 
     public class Backend
     {
-        public static List<string> datos = new List<string>();
+        public static List<string> datos = new List<string>(); // Nueva lista vacía de datos, que luego se carga con los datos del .csv
+        // LOS DATOS SALEN DESDE FORM2, QUE LEE EL .CSV Y HACE EL PARSING
 
         public static string aProfundidad()
         {
@@ -25,11 +26,11 @@ namespace tpfinal
         public static void buscar(bool heapOP, int cantidad, List<Dato> collected)
         {
             
-            if (heapOP)
+            if (heapOP) // si heapOP es true, es decir, el usuario quiere usar Heap:
             {
-                (new Estrategia()).BuscarConHeap(datos, cantidad, collected);
+                (new Estrategia()).BuscarConHeap(datos, cantidad, collected); // Usamos la función BuscarConHeap y le pasamos 
             }
-            else
+            else // Si heapop era false:
             {
                 (new Estrategia()).BuscarConOtro(datos, cantidad, collected);
             }

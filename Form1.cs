@@ -1,8 +1,7 @@
+// ACÁ SE USA Backend.buscar(), LA FUNCIÓN BUSCAR QUE ESTÁ EN BACKEND.CS
 using tp1;
 using tpfinal;
 using System.Runtime.InteropServices;
-
-
 
 namespace tpfinal
 {
@@ -11,30 +10,21 @@ namespace tpfinal
         private int ocurrencias = 1;
         public Form1()
         {
-
-            
             InitializeComponent();
-
-   
-
 		}
-
-
-
         private void btnclose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-
- 
+        // Cuando se toca el botón 1, con el click iquierdo, se ejecuta la función Backend.buscar(), que hace ???
         private void button1_Click_1(object sender, EventArgs e)
         {
             
             List<ListItem> lista = new List<ListItem>();
             List<Dato> collected = new List<Dato>();
 
-            Backend.buscar(heapOp.Checked, ocurrencias, collected);
+            Backend.buscar(heapOp.Checked, ocurrencias, collected); // Llama a buscar(), le pasa como parámetros si está marcado el Método "Heap", ocurrencias (La barrita deslizable de la interfaz que dice "Resultados: x") y collected, lista vacía de Dato(s), que luego vuelve con los resultados de los elementos más repetidos
 
             flowLayoutPanel1.Controls.Clear();
             
@@ -105,7 +95,7 @@ namespace tpfinal
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             txtDist.Text = "Resultados: " + trackBar1.Value;
-            ocurrencias = trackBar1.Value;
+            ocurrencias = trackBar1.Value; // ACÁ SE DEFINE OCURRENCIAS
         }
 
         private void txtDist_TextChanged(object sender, EventArgs e)

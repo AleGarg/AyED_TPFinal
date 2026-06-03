@@ -52,15 +52,15 @@ namespace tpfinal
         }
 
         private List<Dato> LlenarListaDatos(Dictionary<string, int> conteo)
-{
-    List<Dato> lista = new List<Dato>();
-    foreach (var par in conteo)
-    {
-        // Cambiamos el orden: primero el Valor (int) y luego la Llave (string)
-        lista.Add(new Dato(par.Value, par.Key)); 
-    }
-    return lista;
-}
+        {
+            List<Dato> lista = new List<Dato>();
+            foreach (var par in conteo)
+            {
+                // Cambiamos el orden: primero el Valor (int) y luego la Llave (string)
+                lista.Add(new Dato(par.Value, par.Key));
+            }
+            return lista;
+        }
 
         private void QuickSort(List<Dato> elementos, int izq, int der)
         {
