@@ -109,17 +109,18 @@ namespace tpfinal
         {
             // MATEO DEJA DE SEGUIRME POR EL AMOR DE DIOS ME SIENTO MUY SEGUIDO :'V
             List<Dato> collected = new List<Dato>();
-            // --- EMPEZAMOS EL CRONOMETRO ---
+            /*   --- EMPEZAMOS EL CRÓNOMETRO DE HEAP ---   */
             reloj.Start(); // Arranca el tiempo
             BuscarConHeap(datos, 5, collected);
             reloj.Stop(); // Frena el tiempo
-            MessageBox.Show($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
-            reloj.Reset();
+            string metH=($"[Método HEAP]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
+            reloj.Reset(); //Reseteamos el cronómetro para medir el otro método 
+            /*   --- EMPEZAMOS EL CRÓNOMETRO DE QUICKSORT ---   */
             reloj.Start();
             BuscarConOtro(datos, 5, collected);
             reloj.Stop(); 
-            MessageBox.Show($"Tiempo Con otro: {reloj.Elapsed.TotalMilliseconds} ms");
-            return "Implementar";
+            string metQ=($"[Método QuickSort]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
+            return metH + metQ + "[Fin de la Consulta]";
         }
 
         // Consulta2 (List<string> datos): Retorna un texto con el camino a la hoja más izquierda de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap().
