@@ -108,8 +108,13 @@ namespace tpfinal
         }
 
         // ESTO SE HACE DESPUÉS.
+        // Consulta1 (List<string> datos): Retorna un texto con los tiempos que insumen los métodos BuscarConHeap() y BuscarConOrden() en realizar la búsqueda de los 5 elementos de con mayor cantidad de ocurrencias.
         public String Consulta1(List<string> datos) { return "Implementar"; }
+
+        // Consulta2 (List<string> datos): Retorna un texto con el camino a la hoja más izquierda de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap().
         public String Consulta2(List<string> datos) { return "Implementar"; }
+
+        // Consulta3 (List<string> datos): Retorna un texto que contiene los datos de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap(), explicitando en el texto resultado los niveles en los que se encuentran ubicados cada uno de los datos.
         public String Consulta3(List<string> datos) { return "Implementar"; }
     }
 }
