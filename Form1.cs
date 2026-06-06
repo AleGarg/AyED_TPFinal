@@ -36,8 +36,6 @@ namespace tpfinal
                 lista.Add(item);
                 flowLayoutPanel1.Controls.Add(item);
             }
-           
-
         }
         private void btnNo_Click(object sender, EventArgs e)
         {

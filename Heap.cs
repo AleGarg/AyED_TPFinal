@@ -52,5 +52,9 @@ namespace tpfinal
                 SiftDown(max);
             }
         }
+        public list<Dato> ObtenerElementos()
+        {
+            return elementos;
+        }
     }
 }

@@ -44,9 +44,7 @@ namespace tpfinal
                     descript = Utils.RemoveSpecialCharacters(fields[2]);
                     //estrategia.AgregarDato(Backend.arbol, new Dato(0, titulo, descript));
 
-
                     Backend.datos.Add(titulo + "-" + descript); // ACÁ ES DONDE SE AÑADEN LOS DATOS A datos en BACKEND.
-
 
                     progressBar1.PerformStep();
                 }

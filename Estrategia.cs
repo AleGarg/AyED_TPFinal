@@ -15,9 +15,10 @@ namespace tpfinal
         Stopwatch reloj = new Stopwatch();
 
         // 1. Buscar con Heap
-        public void BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected)
+        public void BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected) // datos: lista de strings con los que trabaja (del csv), cantidad = barrita de búsqueda, collected = lista vacía de Dato(s), que luego vuelve con los resultados de los elementos más repetidos
+        // ACÁ SE CARGAN LOS Dato EN collected:
         {
-            Dictionary<string, int> conteo = ContarPalabras(datos);
+            Dictionary<string, int> conteo = ContarPalabras(datos); // Enviamos para contar el string<list> datos (del csv)
             List<Dato> listaDatos = LlenarListaDatos(conteo);
 
             Heap heap = new Heap();
@@ -31,7 +32,7 @@ namespace tpfinal
                 collected.Add(heap.ExtraerMaximo());
             }
         }
-        
+
         // 2. Buscar con Ordenamiento (QuickSort)
         public void BuscarConOtro(List<string> datos, int cantidad, List<Dato> collected)
         {
@@ -59,9 +60,9 @@ namespace tpfinal
             return dicc;
         }
 
-        private List<Dato> LlenarListaDatos(Dictionary<string, int> conteo)
+        private List<Dato> LlenarListaDatos(Dictionary<string, int> conteo) // Creamos una función para pasar el diccionario con la Palabra como Key y la iteración como el Value a una lista de Datos y de forma poder manejar mejor los datos 
         {
-            List<Dato> lista = new List<Dato>();
+            List<Dato> lista = new List<Dato>();//Instanciamos la lista a usar
             foreach (var par in conteo)
             {
                 // Cambiamos el orden: primero el Valor (int) y luego la Llave (string)
@@ -103,37 +104,84 @@ namespace tpfinal
 
         // ESTO SE HACE DESPUÉS.
         // Consulta1 (List<string> datos): Retorna un texto con los tiempos que insumen los métodos BuscarConHeap() y BuscarConOrden() en realizar la búsqueda de los 5 elementos de con mayor cantidad de ocurrencias.
-        public String Consulta1(List<string> datos) {
+        public String Consulta1(List<string> datos)
+        {
             // MATEO DEJA DE SEGUIRME POR EL AMOR DE DIOS ME SIENTO MUY SEGUIDO :'V
-
+            List<Dato> collected = new List<Dato>();
             // --- EMPEZAMOS EL CRONOMETRO ---
             reloj.Start(); // Arranca el tiempo
-            
+            BuscarConHeap(datos, 5, collected);
             reloj.Stop(); // Frena el tiempo
-            Console.WriteLine($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
-            return "Implementar"; 
+            MessageBox.Show($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
+            reloj.Reset();
+            reloj.Start(); // Arranca el tiempo
+            BuscarConOtro(datos, 5, collected);
+            reloj.Stop(); // Frena el tiempo
+            MessageBox.Show($"Tiempo Con otro: {reloj.Elapsed.TotalMilliseconds} ms");
+            return "Implementar";
         }
 
         // Consulta2 (List<string> datos): Retorna un texto con el camino a la hoja más izquierda de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap().
-        public String Consulta2(List<string> datos) {
+        public String Consulta2(List<string> datos)
+        { // CONSULTA 2 ES LLAMADO DESDE BACKEND            
+          // datos ES ------>      public static List<string> datos = new List<string>(); 
+          // Nueva lista vacía de datos, que luego se carga con los datos del .csv
+          // LOS DATOS SALEN DESDE FORM2, QUE LEE EL .CSV Y HACE EL PARSING
+
+
+
+            // Base 0 (Raíz en i = 0): HijoIzquierdo(i) = 2i + 1
+            // Base 1 (Raíz en i = 1): HijoIzquierdo(i) = 2i
+
+            // while(i < datos.Count)
+            // {
+
+            // }
+
             List<string> vacio = new List<string>();
 
             // if(izq < der)
             // {
             //     vacio.Add(izq.Nombre);
             // }
-            return "texto con el camino a la hoja"; 
+            return "texto con el camino a la hoja";
         }
 
         // Consulta3 (List<string> datos): Retorna un texto que contiene los datos de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap(), explicitando en el texto resultado los niveles en los que se encuentran ubicados cada uno de los datos.
         public String Consulta3(List<string> datos)
+
         {
-            return "mesi";
+            list<dato> lista = Armarheap(datos);
+
+            if (lista.count == 0) return "esta vacio";
+
+            for (int i = 0; i < lista.count++i)
+            {
+                int nivel = (int)Math.Log2(i + 1); // Calcula el nivel del nodo en la heap
+
+                reporte.Appendline($"Nivel {nivel}: {lista[i].ToString()}");
+            }
+            return reporte.ToString();
+
         }
-        
-        
+        private List<dato> ArmarEstructuraHeap(List<string> datos)
+        {
+            Dictionary<string, int> conteo = new Dictionary<string, int>();
+            foreach (string s in datos)
+            {
+                if (conteo.ContainsKey(s)) conteo[s]++;
+                else conteo[s] = 1;
+
+                Heap heap = new Heap();
+                foreach (var entry in conteo)
+                {
+                    heap.Insertar(new Dato(entry.Value, entry.Key));
+
+                    return heap.ObtenerElementos();
 
 
-        
+                }
+            }
+        }
     }
 }

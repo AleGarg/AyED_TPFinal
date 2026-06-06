@@ -13,13 +13,13 @@ namespace tpfinal
             return (new Estrategia()).Consulta3(datos);
         }
 
-        public static string caminoAPrediccion() // ALEJO NO gay
+        public static string caminoAPrediccion() // ALEJO
         {
             // devolvemos un string, con el camino más izquierda, 
             return (new Estrategia()).Consulta2(datos);
         }
 
-        public static string todasLasPredicciones()
+        public static string todasLasPredicciones() // MATEO ACÁ
         {
             return (new Estrategia()).Consulta1(datos);
         }
