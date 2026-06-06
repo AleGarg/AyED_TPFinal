@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using tp1;
 
+// TEMPORIZADORES
+using System.Threading;
+using System.Threading.Tasks;
+using System.Diagnostics;
+
 namespace tpfinal
 {
     public class Estrategia
     {
+        // Creamos el cronómetro
+        Stopwatch reloj = new Stopwatch();
+
         // 1. Buscar con Heap
         public void BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected)
         {
+            // --- EMPEZAMOS EL CRONOMETRO ---
+            reloj.Start(); // Arranca el tiempo
+
             Dictionary<string, int> conteo = ContarPalabras(datos);
             List<Dato> listaDatos = LlenarListaDatos(conteo);
 
@@ -22,8 +33,11 @@ namespace tpfinal
             {
                 collected.Add(heap.ExtraerMaximo());
             }
-        }
 
+            reloj.Stop(); // Frena el tiempo
+            Console.WriteLine($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
+        }
+        
         // 2. Buscar con Ordenamiento (QuickSort)
         public void BuscarConOtro(List<string> datos, int cantidad, List<Dato> collected)
         {
