@@ -144,13 +144,13 @@ namespace tpfinal
 
             List<Dato> elementos = heap.ObtenerElementos();
 
-            List<string> listaIzquierda = new List<string>();
+            List<string> listaIzquierda = new List<string>(); // Lista para guardar los nodos a la izquieda
 
             var i = 0;
 
             while(i < elementos.Count)
             {
-                listaIzquierda.Add(elementos[i].texto);
+                listaIzquierda.Add("(" + elementos[i].ocurrencia + ")" + " " + elementos[i].texto);
                 i = 2*i+1; // Fórmula para los hijos izquierdos
             }
             
