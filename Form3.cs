@@ -42,12 +42,8 @@ namespace tpfinal
 
         private void barra_MouseDown(object sender, MouseEventArgs e)
         {
-
-
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-
-
         }
 
         private void button2_Click_1(object sender, EventArgs e)

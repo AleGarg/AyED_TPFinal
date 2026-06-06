@@ -17,9 +17,6 @@ namespace tpfinal
         // 1. Buscar con Heap
         public void BuscarConHeap(List<string> datos, int cantidad, List<Dato> collected)
         {
-            // --- EMPEZAMOS EL CRONOMETRO ---
-            reloj.Start(); // Arranca el tiempo
-
             Dictionary<string, int> conteo = ContarPalabras(datos);
             List<Dato> listaDatos = LlenarListaDatos(conteo);
 
@@ -33,9 +30,6 @@ namespace tpfinal
             {
                 collected.Add(heap.ExtraerMaximo());
             }
-
-            reloj.Stop(); // Frena el tiempo
-            Console.WriteLine($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
         }
         
         // 2. Buscar con Ordenamiento (QuickSort)
@@ -109,12 +103,37 @@ namespace tpfinal
 
         // ESTO SE HACE DESPUÉS.
         // Consulta1 (List<string> datos): Retorna un texto con los tiempos que insumen los métodos BuscarConHeap() y BuscarConOrden() en realizar la búsqueda de los 5 elementos de con mayor cantidad de ocurrencias.
-        public String Consulta1(List<string> datos) { return "Implementar"; }
+        public String Consulta1(List<string> datos) {
+            // MATEO DEJA DE SEGUIRME POR EL AMOR DE DIOS ME SIENTO MUY SEGUIDO :'V
+
+            // --- EMPEZAMOS EL CRONOMETRO ---
+            reloj.Start(); // Arranca el tiempo
+            
+            reloj.Stop(); // Frena el tiempo
+            Console.WriteLine($"Tiempo HEAP: {reloj.Elapsed.TotalMilliseconds} ms");
+            return "Implementar"; 
+        }
 
         // Consulta2 (List<string> datos): Retorna un texto con el camino a la hoja más izquierda de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap().
-        public String Consulta2(List<string> datos) { return "Implementar"; }
+        public String Consulta2(List<string> datos) {
+            List<string> vacio = new List<string>();
+
+            // if(izq < der)
+            // {
+            //     vacio.Add(izq.Nombre);
+            // }
+            return "texto con el camino a la hoja"; 
+        }
 
         // Consulta3 (List<string> datos): Retorna un texto que contiene los datos de la Heap que se construye a partir de los datos de entrada cuando se utiliza el método BuscarConHeap(), explicitando en el texto resultado los niveles en los que se encuentran ubicados cada uno de los datos.
-        public String Consulta3(List<string> datos) { return "Implementar"; }
+        public String Consulta3(List<string> datos)
+        {
+            return "mesi";
+        }
+        
+        
+
+
+        
     }
 }
