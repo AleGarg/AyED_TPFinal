@@ -52,8 +52,9 @@ namespace tpfinal
                 SiftDown(max);
             }
         }
-        public list<Dato> ObtenerElementos()
+        public List<Dato> ObtenerElementos()
         {
+            // elementos es la List<Dato> con todos los datos, que tienen: ocurrencia, texto y descripcion
             return elementos;
         }
     }
