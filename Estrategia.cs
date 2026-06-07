@@ -103,19 +103,18 @@ namespace tpfinal
             return i + 1;
         }
 
-        // ESTO SE HACE DESPUÉS.
+        /* CONSULTAS */
         // Consulta1 (List<string> datos): Retorna un texto con los tiempos que insumen los métodos BuscarConHeap() y BuscarConOrden() en realizar la búsqueda de los 5 elementos de con mayor cantidad de ocurrencias.
         public String Consulta1(List<string> datos)
         {
-            // MATEO DEJA DE SEGUIRME POR EL AMOR DE DIOS ME SIENTO MUY SEGUIDO :'V
             List<Dato> collected = new List<Dato>();
-            /*   --- EMPEZAMOS EL CRÓNOMETRO DE HEAP ---   */
+            /*   --- EMPEZAMOS EL CRÓNOMETRO DEL HEAP ---   */
             reloj.Start(); // Arranca el tiempo
             BuscarConHeap(datos, 5, collected);
             reloj.Stop(); // Frena el tiempo
             string metH=($"[Método HEAP]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
             reloj.Reset(); //Reseteamos el cronómetro para medir el otro método 
-            /*   --- EMPEZAMOS EL CRÓNOMETRO DE QUICKSORT ---   */
+            /*   --- EMPEZAMOS EL CRÓNOMETRO DEL QUICKSORT ---   */
             reloj.Start();
             BuscarConOtro(datos, 5, collected);
             reloj.Stop(); 
