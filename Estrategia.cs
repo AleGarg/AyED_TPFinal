@@ -154,7 +154,7 @@ namespace tpfinal
                 i = 2*i+1; // Fórmula para los hijos izquierdos
             }
             
-            string textoDevolver = "";
+            string textoDevolver = "Camino a la hoja más izquierda de la Heap:\n";
             var j = 0;
             foreach(string texto in listaIzquierda)
             {
