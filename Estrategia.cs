@@ -144,9 +144,9 @@ namespace tpfinal
 
             List<Dato> elementos = heap.ObtenerElementos();
 
-            List<string> listaIzquierda = new List<string>(); // Lista para guardar los nodos a la izquieda
+            List<string> listaIzquierda = new List<string>(); // Lista para guardar los nodos a la izquierda
 
-            var i = 0;
+            var i = 0; // Empiezo un contador (en la raíz = 0)
 
             while (i < elementos.Count)
             {

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using tp1;
 
+#pragma warning disable CS8603
+
 namespace tpfinal
 {
     // Clase Heap auxiliar para el punto 1
@@ -11,7 +13,7 @@ namespace tpfinal
         public void Insertar(Dato d)
         {
             elementos.Add(d);
-            SiftUp(elementos.Count - 1);
+            SiftUp(elementos.Count - 1); // Restamos 1 para que, si tenemos 20 elementos, sean del 0 al 19 y no del 1 al 20.
         }
         public Dato ExtraerMaximo()
         {
