@@ -112,13 +112,13 @@ namespace tpfinal
             reloj.Start(); // Arranca el tiempo
             BuscarConHeap(datos, 5, collected);
             reloj.Stop(); // Frena el tiempo
-            string metH=($"[Método HEAP]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
+            string metH = ($"[Método HEAP]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
             reloj.Reset(); //Reseteamos el cronómetro para medir el otro método 
             /*   --- EMPEZAMOS EL CRÓNOMETRO DEL QUICKSORT ---   */
             reloj.Start();
             BuscarConOtro(datos, 5, collected);
-            reloj.Stop(); 
-            string metQ=($"[Método QuickSort]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
+            reloj.Stop();
+            string metQ = ($"[Método QuickSort]:\n{reloj.Elapsed.TotalMilliseconds} ms\n");
             return metH + metQ + "[Fin de la Consulta]";
         }
 
@@ -148,15 +148,15 @@ namespace tpfinal
 
             var i = 0;
 
-            while(i < elementos.Count)
+            while (i < elementos.Count)
             {
                 listaIzquierda.Add("(" + elementos[i].ocurrencia + ")" + " " + elementos[i].texto);
-                i = 2*i+1; // Fórmula para los hijos izquierdos
+                i = 2 * i + 1; // Fórmula para los hijos izquierdos
             }
-            
+
             string textoDevolver = "Camino a la hoja más izquierda de la Heap:\n";
             var j = 0;
-            foreach(string texto in listaIzquierda)
+            foreach (string texto in listaIzquierda)
             {
                 textoDevolver += "NIVEL " + j + ": " + texto + "\r\n";
                 j++;
@@ -169,13 +169,13 @@ namespace tpfinal
 
         {
             List<Dato> lista = ArmarEstructuraHeap(datos);
+         
+            if (lista == null || lista.Count == 0) return "esta vacio"; // Validación básica: si no hay datos, no tengo nada que reportar.
 
-            if (lista == null || lista.Count == 0) return "esta vacio";
-            
             StringBuilder reporte = new StringBuilder();
             reporte.AppendLine("Reporte de la Heap:");
 
-            for (int i = 0; i < lista.Count; i++)
+            for (int i = 0; i < lista.Count; i++) // Recorro la lista completa
             {
                 int nivel = (int)Math.Log2(i + 1); // Calcula el nivel del nodo en la heap
 
@@ -185,20 +185,21 @@ namespace tpfinal
         }
         private List<Dato> ArmarEstructuraHeap(List<string> datos)
         {
-            Dictionary<string, int> conteo = new Dictionary<string, int>();
+            Dictionary<string, int> conteo = new Dictionary<string, int>(); // Contamos las ocurrencias de cada palabra en el listado de datos
             foreach (string s in datos)
             {
                 if (conteo.ContainsKey(s)) conteo[s]++;
                 else conteo[s] = 1;
             }
-                Heap heap = new Heap();
-                foreach (var entry in conteo)
-                {
-                    heap.Insertar(new Dato(entry.Value, entry.Key));
+            Heap heap = new Heap(); //cargo el heap con los datos procesados
+            foreach (var entry in conteo)
+            {
+                heap.Insertar(new Dato(entry.Value, entry.Key));
 
-                }
-                
-                return heap.ObtenerElementos();
+            }
+
+            return heap.ObtenerElementos();
         }
+        
     }
 }
